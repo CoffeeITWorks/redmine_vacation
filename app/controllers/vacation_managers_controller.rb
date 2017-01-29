@@ -11,7 +11,8 @@ class VacationManagersController < ApplicationController
   end
 
   def create
-    users = User.active.find_all_by_id(params[:user_ids])
+    #users = User.active.find_all_by_id(params[:user_ids])
+    @users = VacationManager::users #if VacationManager::is_admin?(User.current)
     users.each do |user|
       VacationManager.create(:user_id => user.id)
     end
