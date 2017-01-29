@@ -22,9 +22,9 @@ class VacationRange < ActiveRecord::Base
     end
   end
 
-  scope :limit, lambda {|limit|
-    where(:limit => limit)
-  }
+  #scope :limit, lambda {|limit|
+  #  where(:limit => limit)
+  #}
 
   scope :order_by_start_date, lambda {|q|
     if q.present?
