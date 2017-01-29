@@ -4,7 +4,7 @@ Redmine::Plugin.register :redmine_vacation do
   name 'Vacation'
   author 'Roman Shipiev'
   description 'Making it impossible issue assignment the employee is on vacation'
-  version '0.1.4'
+  version '0.1.5'
   url 'https://bitbucket.org/rubynovich/redmine_vacation'
   author_url 'http://roman.shipiev.me'
 
