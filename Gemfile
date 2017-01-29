@@ -1,2 +1,2 @@
-gem "haml", "~>4.0.6"
+gem "haml"
 #gem "delayed_job", "~>2.0.4"

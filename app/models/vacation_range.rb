@@ -22,9 +22,9 @@ class VacationRange < ActiveRecord::Base
     end
   end
 
-  #scope :limit, lambda {|limit|
-  #  where(:limit => limit)
-  #}
+  scope :limit, lambda {|limit|
+    where(:limit => limit)
+  }
 
   scope :order_by_start_date, lambda {|q|
     if q.present?
@@ -67,10 +67,6 @@ class VacationRange < ActiveRecord::Base
       ["vacation_statuses.is_planned = :status",
        {:status => false}],
       :joins => :vacation_status}
-  }
-
-  scope :by_range, lambda{|period_start, period_end|
-    where(["start_date <= ? and end_date >= ?", (period_end.to_date rescue nil) || VacationRange.maximum(:start_date), (period_start.to_date rescue nil) || VacationRange.minimum(:start_date)])
   }
 
 

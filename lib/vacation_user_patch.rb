@@ -12,9 +12,7 @@ module VacationPlugin
         unloadable
         
         if Rails::VERSION::MAJOR >= 3
-          scope :not_vacation_manager, -> {
-		  where("#{User.table_name}.id NOT IN (SELECT vacation_managers.user_id FROM vacation_managers)")
-	  }
+          scope :not_vacation_manager, where("#{User.table_name}.id NOT IN (SELECT vacation_managers.user_id FROM vacation_managers)")
         else
           named_scope :not_vacation_manager, lambda {
             { :conditions => ["#{User.table_name}.id NOT IN (SELECT vacation_managers.user_id FROM vacation_managers)"] }
